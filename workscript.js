@@ -21,3 +21,4 @@ appData.expenses.i1 = h1; // спросить у Дани как передае�
 appData.expenses.i2 = h2;
 
 alert(appData.budget / 30);
+
