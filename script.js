@@ -354,3 +354,49 @@ john.__proto__ = soldier;
 
 console.log(john);
 console.log(john.armor);
+
+
+
+
+
+                    // Lesson 6 Typification
+
+
+
+
+
+// - to String
+
+// 1) команда String() - устарело
+String(null);
+
+// 2) Конкатенация (сложение со строкой дает строку)
+let str = ("qw" + "erty");
+    str2 = ("str" + 8);
+    str3 = ("This is " + null);
+
+
+
+// to Number
+
+// 1) команда Number() - устарело
+Number("87")
+
+// 2) унарный +
+let num = +"56";
+    num = 65 + +"78";
+
+// 3) parseInt()
+parseInt("15px", 10); //вернет 15
+
+
+
+// to Boolean
+// 1) оператор if() - преобразует то что в скобках в булевое значение true / false
+
+// 2) команда Boolean()
+Boolean("54");
+
+// 3) двойное отрицание !!
+let bln = !!"87";
+

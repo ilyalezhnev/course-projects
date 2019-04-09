@@ -1,3 +1,28 @@
+'use strict'
+
+let startCalc = document.getElementById("start"),
+    budgetValue = document.getElementsByClassName("budget-value"),
+    dayBudgetValue = document.getElementsByClassName("daybudget-value"),
+    levelValue = document.getElementsByClassName("level-value"),
+    expensesValue = document.getElementsByClassName("expenses-value"),
+    optionalExpensesValue = document.getElementsByClassName("optionalexpenses-value"),
+    incomeValue = document.getElementsByClassName("income-value"),
+    monthSavingsValue = document.getElementsByClassName("monthsavings-value"),
+    yearSavingsValue = document.getElementsByClassName("yearsavings-value"),
+
+    expensesItem = document.getElementsByClassName("expenses-item"),
+    expensesItemBtn = document.getElementsByTagName("button")[0],
+    optionalExpensesBtn = document.getElementsByTagName("button")[1],
+    countBudgetBtn = document.getElementsByTagName("button")[2],
+    optionalExpensesItem = document.querySelectorAll(".optionalexpenses-item"),
+    chooseIncome = document.querySelector(".choose-income"),
+    checkSavings = document.querySelector("#savings"),
+    chooseSum = document.querySelector(".choose-sum"),
+    choosePercent = document.querySelector(".choose-percent"),
+    yearValue = document.querySelector(".year-value"),
+    monthValue = document.querySelector(".month-value"),
+    dayValue = document.querySelector(".day-value");
+
 let money, time;
 
 function start() {
@@ -24,8 +49,8 @@ let appData = {
           b = prompt("Во сколько обойдется?", "");
     
       if ( typeof(a) === 'string' && typeof(a) != null && typeof(b) != null && a != "" && b != "" && a.length < 20 ) {
-            console.log("Done!");
-            appData.expenses[a] = b;
+          console.log("Done!");
+          appData.expenses[a] = b;
       } else {
           alert("Неправильный формат ввода, попробуйте еще раз!");
           console.log("Неправильный ввод");
@@ -64,19 +89,15 @@ let appData = {
     }
   },
   chooseIncome: function() {
-    for (i = 0; i < 1; i++) {
       let items = prompt("Что принесет доп. доход? (Перечисли через запятую)", "");
-      if ( typeof(items) === 'string' && typeof(items) != null && items != '' ) {
+      if (typeof(items) != "string" || items == "" || typeof(items) == null) {
+        console.log("Вы ввели некорректные данные или не ввели их вовсе");
+    } else {
         appData.income = items.split(", ");
-        appData.income.push(prompt("Может что-то еще?", ""));
+        appData.income.push(prompt("Может что-то еще?"));
         appData.income.sort();
-        console.log("Done!");
-      } else {
-          alert("Неправильный формат ввода, попробуйте еще раз!");
-          console.log("Неправильный ввод");
-          i--;
-      }
     }
+
     appData.income.forEach(function(item, i) {
       alert("Способ доп.заработка: " + (i + 1) + " - " + item);
     });
@@ -86,3 +107,4 @@ let appData = {
 for (let key in appData) {
   console.log("Наша программа включает в себя данные: " + key + " - " + appData[key]);
 }
+
