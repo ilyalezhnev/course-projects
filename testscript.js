@@ -39,6 +39,5 @@ wrapper.removeChild(heart[2]);
 
 document.body.replaceChild(btn[1], circle[1]); // переместить (заменить) элемент
 
-
-
 console.log(div);
+
