@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 // Timer
 
-  let deadline = "2019-04-27";
+  let deadline = "2019-04-30";
 
   function getTimeRemaining(endtime) {
     let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -85,6 +85,36 @@ window.addEventListener("DOMContentLoaded", function() {
 
   setClock("timer", deadline);
 
+
+  // modal window
+
+  let more = document.querySelector(".more"),
+      overlay = document.querySelector(".overlay"),
+      close = document.querySelector(".popup-close"),
+      description = document.querySelector(".description-btn");
+
+  function showOverlay() {
+    overlay.style.display = "block";
+    this.classList.add("more-splash");
+    document.body.style.overflow = "hidden";
+
+  }
+
+   more.addEventListener("click", function() {
+    showOverlay();
+   });
+
+   description.addEventListener("click", function() {
+    showOverlay();
+   });
+
+   close.addEventListener("click", function(){
+     overlay.style.display = "none";
+     more.classList.remove("more-splash");
+     document.body.style.overflow = "";
+   });
+
+ 
 
 
 });
