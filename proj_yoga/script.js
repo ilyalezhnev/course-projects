@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("DOMContentLoaded", () => {
 
   "use strict";
 
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  info.addEventListener("click", function(event) {
+  info.addEventListener("click", (event) => {
     let target = event.target;
     if (target && target.classList.contains("info-header-tab")) {
       for (let i = 0; i < tab.length; i++) {
@@ -37,7 +37,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 // Timer
 
-  let deadline = "2019-04-30";
+  let deadline = "2019-05-01";
 
   function getTimeRemaining(endtime) {
     let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", function() {
         hours = timer.querySelector(".hours"),
         minutes = timer.querySelector(".minutes"),
         seconds = timer.querySelector(".seconds"),
-        timeInterval = setInterval(updateClock, 1000)
+        timeInterval = setInterval(updateClock, 1000);
 
     function updateClock() {
       let t = getTimeRemaining(endtime);
@@ -100,15 +100,15 @@ window.addEventListener("DOMContentLoaded", function() {
 
   }
 
-   more.addEventListener("click", function() {
+   more.addEventListener("click", () => {
     showOverlay();
    });
 
-   description.addEventListener("click", function() {
+   description.addEventListener("click", () => {
     showOverlay();
    });
 
-   close.addEventListener("click", function(){
+   close.addEventListener("click", () => {
      overlay.style.display = "none";
      more.classList.remove("more-splash");
      document.body.style.overflow = "";
